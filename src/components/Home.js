@@ -12,19 +12,24 @@ class Home extends React.Component{
               <Text style={styles.title}>
               Enter your name:
               </Text>
+
               <TextInput
               style={styles.nameInput}
-              onChangeText={(txt)=>{
+              onChangeText={(text)=>{
                   this.setState({
-                    name: txt
+                    name: text
                   })
               }}
               value={this.state.name}
               />
+
               <TouchableOpacity
               style={styles.buttonStyle}
               onPress={()=>{
-                  alert(this.state.name)
+                  Actions.chat({
+                      naam: this.state.name,
+                    })
+                alert(this.state.name)
               }} >
                   <Text>
                       Start chatting

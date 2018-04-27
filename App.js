@@ -1,17 +1,23 @@
 import React from 'react';
+import Home from './src/components/Home'
+import Chat from './src/components/chat'
 import { StyleSheet, Text, View } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        
-        <Text>Changes cgnjcfjh make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      
+      <Router>  
+        <Scene key='root'>
+        <Scene key='home' component={Home} title='Home'/>
+        <Scene key='chat' component={Chat} title='Chat'/>
+        </Scene>
+      </Router>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -20,4 +26,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 20,
+    
+  }
 });
